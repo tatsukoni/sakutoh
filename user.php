@@ -43,7 +43,7 @@ if (!empty($_POST)) {
         $formemail = $_POST['email'];
 
         if ($table = $check->fetch(PDO::FETCH_ASSOC)){
-            if ($formemail = $table['email']) {
+            if ($formemail == $table['email']) {
                 $error['email'] = 'duplicate';
             }
         }else{
