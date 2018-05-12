@@ -1,0 +1,862 @@
+@charset "utf-8";
+
+body{
+    background-color: #EFF5FB;
+    height: 100%;
+}
+
+#main{
+    min-height:100%;
+}
+/*indexページ*/
+
+.title-box{
+    width:100%;
+    background-color:white;
+    height:100px;
+    border-bottom:#EFF5FB 2px solid;
+}
+
+.responce-login{
+    display:none;
+}
+
+.responce-user{
+    display:none;
+}
+
+.responce-about-box{
+    display:none;
+}
+
+.title-box h1{
+    text-align:center;
+    font-size:55px;
+    padding-top:12px;
+}
+
+.login-box{
+    overflow:hidden;
+    background-color: white;
+    margin-bottom:30px;
+    height:63px;
+    border-bottom: darkgray 1px solid;
+}
+
+.login-box-inner{
+    width:90%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.login-box a{
+    display:block;
+    text-decoration: none;
+    padding-top:18px;
+    height:63px;
+    color:black;
+}
+
+.login-box a:hover{
+    background-color:#F2F2F2;
+}
+
+.login{
+    float:right;
+    margin-right:25px;
+}
+
+.user{
+    float:right;
+    margin-right:25px;
+}
+
+.about{
+    float:left;
+    margin-left:25px;
+}
+
+.search{
+    text-align: center;
+    padding-top:18px;
+}
+
+.page-link{
+    width:20%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.paging li{
+    float:left;
+    padding-top:10px;
+    padding-left:25px;
+}
+
+/*.search-box{
+    width:20%;
+    background-color:white;
+    position:absolute;
+    left:30px;
+    top:182px;;
+    height:120px;
+    border: black 2px solid;
+}
+
+.search-box-inner{
+    width:90%;
+    margin:0 auto;
+}
+
+.search-box-inner form{
+    margin-top:7px;
+}
+
+.search-box-inner p{
+    margin-top:7px;
+    font-size:16px;
+}*/
+
+/*新規ユーザー登録*/
+
+.user-box{
+   background-color: white; 
+   width:50%;
+   margin:0 auto;
+   border: #D8D8D8 1px solid;
+}
+
+.user-box-inner{
+    width:90%;
+    margin:0 auto;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+.user-box-inner p{
+    margin-bottom:10px;
+}
+
+.user-box-inner dd{
+    margin-bottom:10px;
+}
+
+.user-box-inner input{
+    font-size:100%;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+/*確認画面*/
+.check-explain{
+    text-align: center;
+    border-bottom:darkgray 1px dotted;
+}
+
+.check-box{
+    background-color: white; 
+    width:50%;
+    margin:0 auto;
+    border: #D8D8D8 1px solid;
+ }
+ 
+.check-box-inner{
+     width:90%;
+     margin:0 auto;
+     padding-top:15px;
+     padding-bottom:15px;
+}
+ 
+.check-box-inner p{
+     margin-bottom:10px;
+}
+ 
+.check-box-inner dd{
+     margin-bottom:10px;
+}
+
+.check-box-inner dt{
+    color:red;
+}
+
+.check-bottun{
+    border-top:darkgray 1px dotted;
+    text-align: center;
+    padding-top:10px;
+}
+
+/*作品投稿画面*/
+
+.post-box{
+    background-color: white; 
+    width:60%;
+    margin:0 auto;
+    border: #D8D8D8 1px solid;
+    margin-bottom:30px;
+ }
+
+.post-box-inner{
+    width:90%;
+    margin:0 auto;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.post-box input{
+    font-size:100%;
+}
+
+.post-box textarea{
+    font-size:17px;
+}
+
+.post-box dt{
+    font-size:22px;
+}
+
+.post-box dd{
+    margin-bottom:15px;
+}
+
+/*メインページ*/
+
+.responce-menu-box{
+    display:none;
+}
+
+.search-box{
+    background-color: white;
+    border-bottom:#EFF5FB 2px solid;
+    height:50px;
+}
+
+.searcher{
+    text-align: center;
+    padding-top:10px;
+}
+
+.main-contents{
+    overflow:hidden;
+}
+
+.content-box{
+    background-color:white;
+    width:45%;
+    margin:0 auto;
+    border: #D8D8D8 1px solid;
+    margin-bottom:20px;
+}
+
+.content-box-inside{
+    width:95%;
+    margin:0 auto;
+    padding-top:7px;
+    padding-bottom:7px;
+}
+
+.content-box a{
+    text-decoration: none;
+}
+
+.content-time{
+    font-size:14px;
+}
+
+.content-title{
+    font-size:24px;
+    padding-bottom:5px;
+    font-family: sans-serif;
+}
+
+.space{
+    background-color: #F2F2F2;
+    height:24px;
+    color:#F2F2F2;
+}
+
+.space p{
+    display:none;
+}
+
+.logout{
+    float:right;
+    margin-right:20px;
+}
+
+.message-box{
+    float:right;
+    margin-right:25px;
+}
+
+.mypage{
+    float:right;
+    margin-right:20px;
+}
+
+.pulldown{
+    background-color:white;
+    border:darkgray 2px solid;
+    width:20%;
+    position: absolute;
+    top:400px;
+    left:500px;
+    display:none;
+}
+
+.pulldown-inner{
+    width:90%;
+    margin:0 auto;
+}
+
+.pulldown h2{
+    font-size:23px;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+
+.pulldown p{
+    font-size:16px;
+    margin-top:7px;
+    margin-bottom:7px;
+}
+
+.pulldown a{
+    text-decoration: none;
+    display:block;
+}
+
+.mypage button{
+    margin-top:16px;
+    background-color:white;
+    font-size:17px;
+    border:none;
+}
+
+.mypage button:hover{
+    color:red;
+}
+
+.good-link{
+    margin-top:5px;
+}
+
+.good-link a{
+    color:red;
+}
+
+/*1投稿ページ*/
+
+.sub-box{
+    background-color: white;
+    margin-bottom:30px;
+    overflow: hidden;
+}
+
+.return{
+    float:right;
+    margin-right:30px;
+}
+
+/*SAKUTOHについて*/
+
+.sub-title-box{
+    background-color: gold;
+    width:100%;
+    height:70px;
+    margin-bottom:45px;
+}
+
+.sub-title-box h2{
+    padding-top:10px;
+    font-size: 33px;
+    text-align:center;
+    color:white;
+}
+
+.content-box-inner{
+    width:88%;
+    margin:0 auto;
+    padding-top:25px;
+    padding-bottom:25px;
+    line-height: 180%;
+}
+
+.content-box-inner p{
+    font-size:15.5px;
+}
+
+.about-title{
+    border-left: gold 10px solid;
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.about-title h3{
+    font-size:25px;
+}
+
+.about-space{
+    background-color: #F2F2F2;
+    width:100%;
+    height:50px;
+}
+
+.about-space p{
+    display:none;
+}
+
+/*メッセージボックス*/
+
+.messagebox-box{
+    background-color:white;
+    width:45%;
+    margin:0 auto;
+    margin-bottom:10px;
+    border: #D8D8D8 1px solid;
+}
+
+.messagebox-box-inner{
+    width:95%;
+    margin:0 auto;
+    padding-top:7px;
+    padding-bottom:7px;
+}
+
+.message-time{
+    font-size:14px;
+}
+
+.messagebox-box a{
+    text-decoration: none;
+}
+
+.message-name{
+    font-size:20px;
+}
+
+/*メッセージの内容*/
+.viewmessagebox-box{
+    background-color:white;
+    width:50%;
+    margin:0 auto;
+    border: #D8D8D8 1px solid;
+}
+
+.viewmessagebox-box-inner{
+    width:93%;
+    margin:0 auto;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.viewmessagebox-box a{
+    text-decoration: none;
+}
+
+.viewmessagebox-box h2{
+    font-size:26px;
+    margin-bottom:5px;
+}
+
+.message-content{
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+/*作品個別ページ*/
+
+.viewcontent-box{
+    background-color:white;
+    width:50%;
+    margin:0 auto;
+    border:#D8D8D8 1px solid;
+}
+
+.viewcontent-box-inner{
+    width:93%;
+    margin: 0 auto;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+.viewcontent-box a{
+    text-decoration: none;
+}
+
+.viewcontent-box h2{
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.viewcontent-content{
+    margin-top:8px;
+    margin-bottom:8px;
+}
+
+.viewcontent-name{
+    margin-bottom:5px;
+    border-bottom:darkgray 1px dotted;
+}
+
+.viewcontent-time{
+    font-size:14px;
+    margin-top:5px;
+    margin-bottom:5px;
+    border-bottom:darkgray 1px dotted;
+}
+
+/*マイページ編集画面*/
+
+.mypagepost-box{
+    width:55%;
+    margin:0 auto;
+    background-color: white;
+    border: #D8D8D8 1px solid;
+}
+
+.mypagepost-box-inner{
+    width:90%;
+    margin:0 auto;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.mypagepost-box input{
+    font-size:100%;
+}
+
+.mypagepost-box textarea{
+    font-size:17px;
+}
+
+.mypagepost-box dd{
+    margin-bottom:20px;
+}
+
+.mypagepost-box dt h2{
+    font-size:22px;
+}
+
+.must{
+    color:red;
+}
+
+/*マイページ*/
+
+.mypage-box{
+    background-color:white;
+    width:45%;
+    margin:0 auto;
+    overflow:hidden;
+    margin-bottom:50px;
+    border: #D8D8D8 1px solid;
+}
+
+.mypage-box-inner{
+    width:90%;
+    margin:0 auto;
+}
+
+.mypage-box h2{
+    font-size:28px;
+    padding-top:25px;
+    font-family: Courier New, Courier, monospace;
+    color:black;
+}
+
+.mypage-box-link a{
+    text-decoration: none;
+    display:block;
+    margin-top:5px;
+    margin-bottom: 10px;
+}
+
+
+/*フッター設定*/
+.footer{
+    background-color: white;
+    margin-top:25px;
+    border-top:darkgray 1px solid;
+    overflow:hidden;
+    /*position: absolute;
+    bottom:0;
+    width:100%;*/
+}
+
+.footer-inner{
+    width:90%;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+/*.footer p{
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:15px;
+}*/
+
+.footer ul{
+    overflow:hidden;
+}
+
+.footer li p{
+    float:left;
+    padding-left:25px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:15px;
+}
+
+.footer li a{
+    float:left;
+    display: inline-block;
+    padding-left:30px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:15px;
+}
+
+.footer li a:hover{
+    color:greenyellow;
+}
+
+@media screen and (max-width: 500px){
+
+    /*インデックスページ*/
+
+    .login-box{
+        margin-bottom:0;
+        border-bottom:#EFF5FB 2px solid;
+    }
+
+    .login-box-inner{
+        width:100%;
+    }
+
+    .login{
+        float:none;
+        display:none;
+    }
+
+    .user{
+        float:none;
+        display:none;
+    }
+
+    .about{
+        float:none;
+        display:none;
+    }
+
+    .search{
+        float:none;
+    }
+
+    .content-box{
+        width:96%;
+        margin-bottom:10px;
+    }
+
+    .title-box{
+        overflow:hidden;
+        height:70px;
+    }
+
+    .title-box h1{
+        font-size:25px;
+        float:left;
+        padding-top:10px;
+        padding-left:10px;
+    }
+
+    .responce-login{
+        display:block;
+        background-color:#01DFA5;
+        float:right;
+        margin-right:15px;
+        margin-top:20px;
+        border-radius: 2px;
+    }
+
+    .responce-login a{
+        text-decoration: none;
+        color:white;
+        padding:3px;
+    }
+
+    .responce-user{
+        display:block;
+        background-color:#FE642E;
+        float:right;
+        margin-right:10px;
+        margin-top:20px;
+        border-radius: 2px;
+    }
+
+    .responce-user a{
+        text-decoration: none;
+        color:white;
+        padding:3px;
+    }
+
+    .responce-about-box{
+        display: block;
+        background-color:white;
+        width:100%;
+        margin-bottom:20px;
+        height:50px;
+        border-bottom: darkgray 1px solid;
+    }
+
+    .responce-about-box a{
+        text-decoration: none;
+        font-size:17px;
+        text-align: center;
+        margin-top:10px;
+        padding-top:10px;
+    }
+
+    .page-link{
+        width:60%;
+    }
+
+    /*ログイン画面*/
+
+    .user-box{
+        width:96%;
+    }
+
+    .user-box input{
+        width:280px;
+        text-align: center;
+    }
+
+    /*メインメニュー*/
+
+    .logout{
+        display:none;
+    }
+
+    .user{
+        display:none;
+    }
+
+    .message-box{
+        display:none;
+    }
+
+    .mypage{
+        display:none;
+    }
+
+    .about{
+        display:none;
+    }
+
+    .login-box{
+        display:none;
+    }
+
+    .responce-menu-box{
+        display:inline-block;
+        height:35px;
+        background-color:white;
+        overflow:hidden;
+        border-bottom: darkgray 1px solid;
+        margin-bottom:20px;
+    }
+
+    .responce-menu-box li{
+        float:left;
+        width:80px;
+    }
+
+    .responce-menu-box a{
+        text-decoration: none;
+    }
+
+    .responce-menu-box p{
+        text-align: center;
+    }
+
+    .responce-menu-box button{
+        font-size:8px;
+        margin-bottom:10px;
+        padding-bottom:10px;
+    }
+
+    .pulldown{
+        background-color:white;
+        border:darkgray 2px solid;
+        width:70%;
+        position: absolute;
+        top:200px;
+        left:70px;
+        display:none;
+    }
+
+    /*投稿記事*/
+
+    .viewcontent-box{
+        width:96%;
+    }
+
+    .sub-title-box h2{
+        font-size:25px;
+    }
+
+    /*プロフィールページ*/
+
+    .mypage-box{
+        width:96%;
+    }
+
+    .mypage-box h2{
+        font-size:21px;
+    }
+
+    /*作品投稿画面*/
+
+    .post-box{
+        width:96%;
+    }
+
+    .post-box input{
+        width:250px;
+    }
+
+    .post-box textarea{
+        width:280px;
+        height:1000px;
+    }
+
+    /*オファー送信画面*/
+
+    .mypagepost-box{
+        width:96%;
+    }
+
+    .mypagepost-box input{
+        width:230px;
+    }
+
+    .mypagepost-box textarea{
+        width:260px;
+        height:800px;
+    }
+
+    /*メッセージボックス*/
+
+    .messagebox-box{
+        width:96%;
+    }
+
+    /*個別メッセージボックス*/
+
+    .viewmessagebox-box{
+        width:96%;
+    }
+}
