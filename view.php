@@ -58,7 +58,7 @@
                 $table = $record->fetch(PDO::FETCH_ASSOC);
                 $goodcnt = $table['cntt'];
                 ?>
-                <p class="good-link"><a href="good.php?id=<?php echo htmlspecialchars($rese['id'], ENT_QUOTES, UTF-8); ?>">この作品を応援する　★<?php echo $goodcnt ?></a></p>
+                <p class="good-link"><a href="good.php?id=<?php echo htmlspecialchars($rese['id'], ENT_QUOTES, UTF-8); ?>">この作品を応援する</a>　<a href="gooduser.php?id=<?php echo htmlspecialchars($rese['id'], ENT_QUOTES, UTF-8); ?>">★<?php echo $goodcnt ?></a></p>
             </div>
         </div>
 
