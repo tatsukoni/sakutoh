@@ -15,6 +15,12 @@
     <?php
     session_start();
 
+    if (!isset($_SESSION["NAME"])) {
+        //ログインしてない
+        header('Location: login.php');
+        exit();
+    }
+
     //データベースの読み込み
     $dsn = 'mysql:host=mysql715.db.sakura.ne.jp;dbname=sakutoh_toko;charset=utf8';
     $user = 'sakutoh';
@@ -65,7 +71,7 @@
                     <dl>
                         <dt><h2>名前</h2></dt>
                         <dd>
-                            <input type="text" name="name" size="50" maxlength="200">
+                            <input type="text" name="name" size="50" maxlength="200" value="<?php echo htmlspecialchars($_SESSION['NAME'], ENT_QUOTES, UTF-8); ?>">
                         </dd>
                         <dt><h2>メッセージ</h2></dt>
                         <dd>
