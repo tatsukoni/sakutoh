@@ -70,7 +70,7 @@
                 if ($searchname == $searchres['name']){
 
                     $id= $searchres['id'];
-                    header("Location: mypage.php?id=$id");
+                    header("Location: page.php?id=$id");
                     exit();
                 }else{
                     $error['search'] = 'failed';
@@ -112,6 +112,9 @@
             </div>
             <div class="message-box">
                 <p><a href="message.php?mes=<?php echo htmlspecialchars($_SESSION["ID"], ENT_QUOTES, UTF-8); ?>">オファーボックス</a></p>
+            </div>
+            <div class="mypage">
+                <button>プロフィール</button>
             </div>
             <div class="about">
                 <p><a href="about.php">SAKUTOHとは</a></p>

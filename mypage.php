@@ -13,6 +13,7 @@
 <body>
 
     <?php
+    session_start();
 
     //データベースの読み込み
     $dsn = 'mysql:host=mysql715.db.sakura.ne.jp;dbname=sakutoh_toko;charset=utf8';
@@ -24,10 +25,14 @@
     $id = $_REQUEST['id'];
     //$sql = "SELECT * FROM mypage";
     //$fmypage = $db->query($sql);
-    if ($sqlii = "SELECT * FROM mypage WHERE member_id=$id"){
-        $mypage = $db->query($sqlii);
-        $mypg = $mypage->fetch(PDO::FETCH_ASSOC);
-    }else{
+    if ($sqlii = "SELECT mypage.*, members.class FROM mypage, members WHERE members.id=mypage.member_id AND member_id=$id"){
+        if ($mypage = $db->query($sqlii) ) {
+            $mypg = $mypage->fetch(PDO::FETCH_ASSOC);
+        }
+    }
+
+    //マイページ未設定の場合の処理
+    if ($mypg['name'] == ''){
         $error['mypage'] = 'blank';
     }
     ?>
@@ -46,33 +51,55 @@
         <div class="mypage-box">
             <div class="mypage-box-inner">
                 <div class="mypage-box-name">
-                    <h2>ライター名：<?php echo htmlspecialchars($mypg['name'], ENT_QUOTES, UTF-8); ?></h2>
-                    <?php if($error['mypage'] == 'blank'): ?>
-                    <p>未設定</p>
-                    <?php endif; ?>
+                    <dt>
+                        <?php if ($mypg['class'] == "ライター"): ?>
+                        <h2><?php echo 'ライター名' ?></h2>
+                        <?php endif; ?>
+                        <?php if ($mypg['class'] == "クライアント"): ?>
+                        <h2><?php echo 'クライアント名' ?></h2>
+                        <?php endif; ?>
+                    </dt>
+                    <dd>
+                        <h3><?php echo htmlspecialchars($mypg['name'], ENT_QUOTES, UTF-8); ?></h3>
+                        <?php if($error['mypage'] == 'blank'): ?>
+                        <h2><?php echo '名称未設定' ?></p>
+                        <?php endif; ?>
+                    </dd>
                 </div>
                 <div class="mypage-box-picture">
                     <img src="<?php echo htmlspecialchars($mypg['picture'], ENT_QUOTES, UTF-8); ?>" width="180" alt="プロフィール画像未設定">
-                    <?php if($error['mypage'] == 'blank'): ?>
-                    <p>未設定</p>
-                    <?php endif; ?>
                 </div>
                 <div class="mypage-box-info">
-                    <h2>自己紹介</h2>
-                    <p><?php echo nl2br(htmlspecialchars($mypg['info'], ENT_QUOTES, UTF-8)); ?></p>
-                    <?php if($error['mypage'] == 'blank'): ?>
-                    <p>未設定</p>
-                    <?php endif; ?>
+                    <dt>
+                        <?php if ($mypg['class'] == "ライター"): ?>
+                        <h2><?php echo '自己紹介' ?></h2>
+                        <?php endif; ?>
+                        <?php if ($mypg['class'] == "クライアント"): ?>
+                        <h2><?php echo '自己紹介' ?></h2>
+                        <?php endif; ?>
+                    </dt>
+                    <dd>
+                        <p><?php echo nl2br(htmlspecialchars($mypg['info'], ENT_QUOTES, UTF-8)); ?></p>
+                        <?php if($error['mypage'] == 'blank'): ?>
+                        <h2><?php echo '自己紹介文未設定' ?></h2>
+                        <?php endif; ?>
+                    </dd>
                 </din>
                 <div class="mypage-box-expe">
-                    <h2>経歴・実績</h2>
-                    <p><?php echo nl2br(htmlspecialchars($mypg['expe'], ENT_QUOTES, UTF-8)); ?></p>
-                    <?php if($error['mypage'] == 'blank'): ?>
-                    <p>未設定</p>
-                    <?php endif; ?>
+                    <dt>
+                        <?php if ($mypg['class'] == "ライター"): ?>
+                        <h2><?php echo '経歴・実績' ?></h2>
+                        <?php endif; ?>
+                        <?php if ($mypg['class'] == "クライアント"): ?>
+                        <h2><?php echo 'その他プロフィール' ?></h2>
+                        <?php endif; ?>
+                    </dt>
+                    <dd>
+                        <p><?php echo nl2br(htmlspecialchars($mypg['expe'], ENT_QUOTES, UTF-8)); ?></p>
+                    </dd>
                 </div>
                 <div class="mypage-box-link">
-                    <p><a href="page.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES, UTF-8); ?>">このライターの作品一覧ページへ</p>
+                    <p><a href="page.php?id=<?php echo htmlspecialchars($id, ENT_QUOTES, UTF-8); ?>">ユーザー別作品一覧ページへ</p>
                 </div>
             </div>
         </div>

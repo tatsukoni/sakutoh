@@ -50,7 +50,7 @@
                 if ($searchname == $searchres['name']){
 
                     $id= $searchres['id'];
-                    header("Location: mypage.php?id=$id");
+                    header("Location: page.php?id=$id");
                     exit();
                 }else{
                     $error['search'] = 'failed';

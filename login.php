@@ -29,7 +29,7 @@
         if ($_POST['email'] != '' && $_POST['password'] != '' && $_POST['user-class'] != ''){
             if ($_POST['user-class'] == "ライター") {
 
-                $stmt = $db -> prepare('SELECT * FROM members WHERE email = ?');
+                $stmt = $db -> prepare('SELECT * FROM members WHERE email = ? AND class="ライター"');
                 $stmt->execute(array($_POST['email']));
 
                 $password = $_POST['password'];
@@ -58,7 +58,7 @@
                 } 
             }elseif ($_POST['user-class'] == "クライアント") {
 
-                $stmt = $db -> prepare('SELECT * FROM cliant WHERE email = ?');
+                $stmt = $db -> prepare('SELECT * FROM members WHERE email = ? AND class="クライアント"');
                 $stmt->execute(array($_POST['email']));
 
                 $password = $_POST['password'];
@@ -68,7 +68,7 @@
                         session_regenerate_id(true);
                         // 入力したIDのユーザー名を取得
                         $id = $result['id'];
-                        $sql = "SELECT * FROM cliant WHERE id = $id";  //入力したIDからユーザー名を取得
+                        $sql = "SELECT * FROM members WHERE id = $id";  //入力したIDからユーザー名を取得
                         $stmt = $db->query($sql);
                         foreach ($stmt as $result) {
                             $result['name'];  // ユーザー名
@@ -88,7 +88,7 @@
             } 
         } else {
                 // 該当データなし
-                $error['login'] = 'failed';
+                $error['login'] = 'blank';
             }
     } else{
             //記入なし

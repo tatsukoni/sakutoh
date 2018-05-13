@@ -52,8 +52,13 @@ if (!empty($_POST)) {
         $params = array(':name' => $re_name, ':info' => $re_info, ':expe' => $re_expe, ':member_id' => $id);
         $update->execute($params);
         
-        header('Location: main.php');
-        exit();
+        if ($_SESSION["CLASS"] == "クライアント") {
+            header('Location: maincliant.php');
+            exit();
+        }elseif ($_SESSION["CLASS"] == "ライター"){
+            header('Location: main.php');
+            exit();
+        }
     }
 }
 
@@ -74,7 +79,15 @@ if (!empty($_POST)) {
                 <form action="" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="submit">
                     <dl>
-                        <dt><h2>*ライター名<span class="must">（必須）</span></h2></dt>
+                        <dt>
+                            <?php if ($_SESSION["CLASS"] == "ライター"): ?>
+                            <h2><?php echo 'ライター名' ?></h2>
+                            <?php endif; ?>
+                            <?php if ($_SESSION["CLASS"] == "クライアント"): ?>
+                            <h2><?php echo 'クライアント名' ?></h2>
+                            <?php endif; ?>
+                            <span class="must">（必須）</span>
+                        </dt>
                         <dd>
                             <input type="text" name="writer-name" size="40" maxlength="200" value="<?php echo htmlspecialchars($mypg['name'], ENT_QUOTES, UTF-8); ?>">
                             <?php if ($error['writer-name'] == 'blank'): ?>
@@ -88,7 +101,14 @@ if (!empty($_POST)) {
                             <p class="error">* 自己紹介文をご記入ください</p>
                             <?php endif; ?>
                         </dd>
-                        <dt><h2>経歴・実績</h2></dt>
+                        <dt>
+                            <?php if ($_SESSION["CLASS"] == "ライター"): ?>
+                            <h2><?php echo '経歴・実績' ?></h2>
+                            <?php endif; ?>
+                            <?php if ($_SESSION["CLASS"] == "クライアント"): ?>
+                            <h2><?php echo 'その他プロフィール' ?></h2>
+                            <?php endif; ?>
+                        </dt>
                         <dd>
                             <textarea name="expe" rows="15" cols="60"><?php echo htmlspecialchars($mypg['expe'], ENT_QUOTES, UTF-8); ?></textarea>
                         </dd>
