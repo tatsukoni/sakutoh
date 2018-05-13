@@ -34,8 +34,15 @@ if ($check->execute(array(':user_id' => $memberId, ':post_id' => $postId))) {
     $table = $check->fetch(PDO::FETCH_ASSOC);
     if ($memberId == $table['user_id'] && $postId == $table['post_id']) {
         $error['good'] = 'double';
-        header('Location: main.php');
-        exit();
+
+        if ($_SESSION["CLASS"] == "クライアント") {
+            header('Location: maincliant.php');
+            exit();
+        }elseif ($_SESSION["CLASS"] == "ライター"){
+            header('Location: main.php');
+            exit();
+        }
+        
     }else{
         $error['good'] = 'good';
     }
@@ -53,8 +60,13 @@ if ($error['good'] == 'good') {
     $good->bindParam(':created', $created_time, PDO::PARAM_STR);
     $good->execute();
 
-    header('Location: main.php');
-    exit(); 
+    if ($_SESSION["CLASS"] == "クライアント") {
+        header('Location: maincliant.php');
+        exit();
+    }elseif ($_SESSION["CLASS"] == "ライター"){
+        header('Location: main.php');
+        exit();
+    }
 }
 
 ?>

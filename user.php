@@ -36,6 +36,9 @@ if (!empty($_POST)) {
     if ($_POST['password'] != $_POST['check_password']) {
         $error['password'] = 'wrong';
     }
+    if ($_POST['user-class'] == '') {
+        $error['user-class'] = 'blank';
+    }
     if (empty($error)) {
         //メールアドレスの重複確認
         $check = $db -> prepare('SELECT * FROM members WHERE email = ?');
@@ -107,6 +110,14 @@ if (!empty($_POST)) {
                         <dt>パスワード（確認）</dt>
                         <dd>
                             <input type="password" name="check_password" size="35" value="<?php echo htmlspecialchars($_POST['check_password'], ENT_QUOTES, 'UTF-8'); ?>" >
+                        </dd>
+                        <dt>利用区分</dt>
+                        <dd>
+                            <input  type="radio" name="user-class" value="ライター"><label for="class_writer">ライター</label>
+                            <input  type="radio" name="user-class" value="クライアント"><label for="class_cliant">クライアント</label>
+                            <?php if ($error['user-class'] == 'blank'): ?>
+                            <p class="error">* 利用区分を入力してください</p>
+                            <?php endif; ?>
                         </dd>
                     </dl>
                     <div>

@@ -37,22 +37,35 @@ if ($_REQUEST['action'] == 'rewrite') {
 
 //登録処理
 if (!empty($_POST)) {
-    //$sql = sprintf('INSERT INTO members SET name="%s", email="%s", password="%s"',
+    if ($_SESSION['join']['user-class'] == "ライター") {
+        //$sql = sprintf('INSERT INTO members SET name="%s", email="%s", password="%s"',
         //mysqli_real_escape_string($db, $_SESSION['join']['name']),
         //mysqli_real_escape_string($db, $_SESSION['join']['email']),
         //mysqli_real_escape_string($db, shal($_SESSION['join']['password']))
-    //);
-    $stt = $db -> prepare("INSERT INTO members(name, email, password) VALUES (:name, :email, :password)");
-    $stt->bindParam(':name', $_SESSION['join']['name'], PDO::PARAM_STR);
-    $stt->bindParam(':email', $_SESSION['join']['email'], PDO::PARAM_STR);
-    $pass = password_hash($_SESSION['join']['password'], PASSWORD_DEFAULT);
-    $stt->bindParam(':password', $_SESSION['join']['password'], PDO::PARAM_STR);
-    $stt->execute();
+        //);
+        $stt = $db -> prepare("INSERT INTO members(name, email, password) VALUES (:name, :email, :password)");
+        $stt->bindParam(':name', $_SESSION['join']['name'], PDO::PARAM_STR);
+        $stt->bindParam(':email', $_SESSION['join']['email'], PDO::PARAM_STR);
+        $pass = password_hash($_SESSION['join']['password'], PASSWORD_DEFAULT);
+        $stt->bindParam(':password', $_SESSION['join']['password'], PDO::PARAM_STR);
+        $stt->execute();
 
-    //$db->query('INSERT INTO members SET name="小西", email="tatsuh", password="trreer"');
-    //$db->query($sql);
-    header('Location: thanks.php');
-    exit();
+        //$db->query('INSERT INTO members SET name="小西", email="tatsuh", password="trreer"');
+        //$db->query($sql);
+        header('Location: thanks.php');
+        exit();
+    }elseif ($_SESSION['join']['user-class'] == "クライアント") {
+        
+        $stt = $db -> prepare("INSERT INTO cliant(name, email, password) VALUES (:name, :email, :password)");
+        $stt->bindParam(':name', $_SESSION['join']['name'], PDO::PARAM_STR);
+        $stt->bindParam(':email', $_SESSION['join']['email'], PDO::PARAM_STR);
+        $pass = password_hash($_SESSION['join']['password'], PASSWORD_DEFAULT);
+        $stt->bindParam(':password', $_SESSION['join']['password'], PDO::PARAM_STR);
+        $stt->execute();
+
+        header('Location: thanks.php');
+        exit();
+    }
 }
 ?>
 
@@ -83,6 +96,10 @@ if (!empty($_POST)) {
                         <dt>パスワード</dt>
                         <dd>
                         【表示されません】
+                        </dd>
+                        <dt>利用区分</dt>
+                        <dd>
+                            <?php echo htmlspecialchars($_SESSION['join']['user-class'], ENT_QUOTES, 'UTF-8'); ?>
                         </dd>
                     </dl>
                     <div class="check-bottun">

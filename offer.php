@@ -42,11 +42,11 @@
             $offer->bindParam(':created', $created_time, PDO::PARAM_STR);
             $offer->execute(); 
 
-            if(isset($_SESSION["NAME"])){
-                header('Location: main.php');
+            if ($_SESSION["CLASS"] == "クライアント") {
+                header('Location: maincliant.php');
                 exit();
-            }else{
-                header('Location: index.php');
+            }elseif ($_SESSION["CLASS"] == "ライター"){
+                header('Location: main.php');
                 exit();
             }
         }else{
