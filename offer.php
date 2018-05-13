@@ -30,14 +30,18 @@
     //メンバーIDの読み取り
     $res = $_REQUEST['res'];
 
+    //送り手側のID情報
+    $id = $_SESSION["ID"];
+
     //投稿処理
     if (!empty($_POST)) {
         if ($_POST['name'] != '' && $_POST['message'] != '') {
 
-            $offer = $db -> prepare("INSERT INTO offer(name, message, member_id, created) VALUES (:name, :message, :member_id, :created)");
+            $offer = $db -> prepare("INSERT INTO offer(name, message, member_id, poster_id, created) VALUES (:name, :message, :member_id, :poster_id, :created)");
             $offer->bindParam(':name', $_POST['name'], PDO::PARAM_STR);
             $offer->bindParam(':message', $_POST['message'], PDO::PARAM_STR);
             $offer->bindValue(':member_id', $res, PDO::PARAM_INT);
+            $offer->bindValue(':poster_id', $id, PDO::PARAM_INT);
             $created_time = date('Y/m/d H:i:s');
             $offer->bindParam(':created', $created_time, PDO::PARAM_STR);
             $offer->execute(); 

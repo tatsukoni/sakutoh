@@ -50,7 +50,7 @@
 
         <div class="messagebox-box">
             <div class="messagebox-box-inner">
-                <h2 class="message-name"><?php echo htmlspecialchars($meses['name'], ENT_QUOTES, UTF-8); ?></h2>
+                <h2 class="message-name"><a href="mypage.php?id=<?php echo htmlspecialchars($meses['poster_id'], ENT_QUOTES, UTF-8); ?>"><?php echo htmlspecialchars($meses['name'], ENT_QUOTES, UTF-8); ?></a></h2>
                 <p class="message-time"><?php echo htmlspecialchars($meses['created'], ENT_QUOTES, UTF-8); ?></p>
                 <p class="message-link"><a href="messageview.php?box=<?php echo htmlspecialchars($meses['id'], ENT_QUOTES, UTF-8); ?>">メッセージを読む</a></p>
             </div>
