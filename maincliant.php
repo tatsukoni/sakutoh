@@ -111,7 +111,7 @@
                 <p><a href="logout.php">ログアウト</a></p>
             </div>
             <div class="message-box">
-                <p><a href="message.php?mes=<?php echo htmlspecialchars($_SESSION["ID"], ENT_QUOTES, UTF-8); ?>">オファーボックス</a></p>
+                <p><a href="emitbox.php?mes=<?php echo htmlspecialchars($_SESSION["ID"], ENT_QUOTES, UTF-8); ?>">送信ボックス</a></p>
             </div>
             <div class="mypage">
                 <button>プロフィール</button>
